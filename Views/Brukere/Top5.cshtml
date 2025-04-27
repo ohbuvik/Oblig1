@@ -1,0 +1,23 @@
+@model List<Bruker>
+
+<h2>Top 5 Brukere (mest spill gjennomført)</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Navn</th>
+            <th>Kontaktinfo</th>
+            <th>Antall spill</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var bruker in Model)
+    {
+        <tr>
+            <td>@bruker.Navn</td>
+            <td>@bruker.KontaktInfo</td>
+            <td>@bruker.AntallSpill</td>
+        </tr>
+    }
+    </tbody>
+</table>

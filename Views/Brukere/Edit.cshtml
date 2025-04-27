@@ -1,0 +1,40 @@
+@model Bruker
+
+@{
+    ViewData["Title"] = "Rediger bruker";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Hovedform for redigering -->
+@using (Html.BeginForm("Edit", "Brukere", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Navn, htmlAttributes: new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Navn, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Navn, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.KontaktInfo, htmlAttributes: new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.KontaktInfo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.KontaktInfo, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.AntallSpill, htmlAttributes: new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.AntallSpill, new { @class = "form-control", @readonly = "readonly" })
+        @Html.ValidationMessageFor(model => model.AntallSpill, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lagre</button>
+    @Html.ActionLink("Avbryt", "Index", null, new { @class = "btn btn-secondary" })
+}
+
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

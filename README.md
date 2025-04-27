@@ -1,1 +1,2 @@
-# Oblig1
+# ferhat2
+# FerhatOysteinJa
